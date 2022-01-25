@@ -78,6 +78,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -225,6 +226,6 @@
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
     <ui:Beep sap:VirtualizedContainerService.HintSize="588,22" sap2010:WorkflowViewState.IdRef="Beep_1" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="588,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Write PDF Completed Succesfully&quot;]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="588,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Write PDF Completed  Succesfully&quot;]" />
   </Sequence>
 </Activity>
