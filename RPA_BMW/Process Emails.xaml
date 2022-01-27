@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1208,3621</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1117,4052</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Mails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="72">
@@ -92,7 +92,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_Mails" sap:VirtualizedContainerService.HintSize="708,3556" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_Mails" sap:VirtualizedContainerService.HintSize="758,3987" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="emailList" />
       <Variable x:TypeArguments="x:String" Name="address" />
@@ -105,7 +105,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[selectedBuilder.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="666,670" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[selectedBuilder.Equals(&quot;&quot;)]" sap:VirtualizedContainerService.HintSize="716,670" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="376,483" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
@@ -138,7 +138,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="638,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="CES_workbook_V1.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="716,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="CES_workbook_V1.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -155,19 +155,19 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Configuration workflow" sap:VirtualizedContainerService.HintSize="638,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Get Configuration.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Configuration workflow" sap:VirtualizedContainerService.HintSize="716,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Get Configuration.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="configData">[config]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[Split(config,&quot;##&quot;)(0)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="638,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[Split(config,&quot;##&quot;)(1)]" MarkAsRead="False" Messages="[emailList]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="30" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="666,2079" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[emailList]">
+    <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[Split(config,&quot;##&quot;)(0)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="716,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[Split(config,&quot;##&quot;)(1)]" MarkAsRead="False" Messages="[emailList]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="30" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="716,2510" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[emailList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="emailItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="630,1945" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="680,2376" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Int32" Default="1" Name="rowIndex" />
             </Sequence.Variables>
@@ -176,8 +176,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[Split(config,&quot;##&quot;)(2)]" sap:VirtualizedContainerService.HintSize="588,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[emailItem]" OverwriteExisting="True" />
-            <Assign sap:VirtualizedContainerService.HintSize="588,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[Split(config,&quot;##&quot;)(2)]" sap:VirtualizedContainerService.HintSize="638,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[emailItem]" OverwriteExisting="True" />
+            <Assign sap:VirtualizedContainerService.HintSize="638,60" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[cesNo]</OutArgument>
               </Assign.To>
@@ -185,7 +185,7 @@
                 <InArgument x:TypeArguments="x:String">[Split(emailItem.Subject.Replace("FW: ",""), " ")(1)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="588,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="638,60" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[address]</OutArgument>
               </Assign.To>
@@ -193,19 +193,19 @@
                 <InArgument x:TypeArguments="x:String">[Split(emailItem.Subject, "-")(1).Trim]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[excelDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="588,1526" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[excelDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="638,1957" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="554,1406" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1837" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[rowIndex]</OutArgument>
                       </Assign.To>
@@ -213,9 +213,9 @@
                         <InArgument x:TypeArguments="x:Int32">[rowIndex+1]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[CurrentRow.Item(23).ToString.Equals(&quot;2&quot;) And CurrentRow.Item(3).ToString.ToUpper.Equals(address)]" sap:VirtualizedContainerService.HintSize="512,1214" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[CurrentRow.Item(23).ToString.Equals(&quot;2&quot;) And CurrentRow.Item(3).ToString.ToUpper.Equals(address)]" sap:VirtualizedContainerService.HintSize="562,1645" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,1027" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence sap:VirtualizedContainerService.HintSize="526,1458" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="ui:GenericValue" Name="nextStatus" />
                           </Sequence.Variables>
@@ -224,7 +224,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="CES_workbook_V1.xlsx">
+                          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="484,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="CES_workbook_V1.xlsx">
                             <ui:ExcelApplicationScope.Body>
                               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                                 <ActivityAction.Argument>
@@ -241,10 +241,40 @@
                               </ActivityAction>
                             </ui:ExcelApplicationScope.Body>
                           </ui:ExcelApplicationScope>
-                          <ui:WriteCell Cell="[&quot;AM&quot;+rowIndex.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="[selectedBuilder]" Text="[Split(config,&quot;##&quot;)(2)+cesNo + &quot;.pdf&quot;]" WorkbookPath="CES_workbook_V1.xlsx" />
-                          <ui:WriteCell Cell="[&quot;AN&quot;+rowIndex.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="[selectedBuilder]" Text="[Split(config,&quot;##&quot;)(2) + &quot;EWR_&quot;+cesNo + &quot;.pdf&quot;]" WorkbookPath="CES_workbook_V1.xlsx" />
-                          <ui:WriteCell Cell="[&quot;AP&quot;+rowIndex.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="[selectedBuilder]" Text="[cesNo]" WorkbookPath="CES_workbook_V1.xlsx" />
-                          <ui:MarkOutlookMailAsRead DisplayName="Mark Outlook Mail As Read/Unread" sap:VirtualizedContainerService.HintSize="334,142" sap2010:WorkflowViewState.IdRef="MarkOutlookMailAsRead_1" MailMessage="[emailItem]" MarkAs="Read" />
+                          <ui:WriteCell Cell="[&quot;AM&quot;+rowIndex.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="484,115" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="[selectedBuilder]" Text="[Split(config,&quot;##&quot;)(2)+cesNo + &quot;.pdf&quot;]" WorkbookPath="CES_workbook_V1.xlsx" />
+                          <ui:WriteCell Cell="[&quot;AN&quot;+rowIndex.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="484,115" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="[selectedBuilder]" Text="[Split(config,&quot;##&quot;)(2) + &quot;EWR_&quot;+cesNo + &quot;.pdf&quot;]" WorkbookPath="CES_workbook_V1.xlsx" />
+                          <ui:WriteCell Cell="[&quot;AP&quot;+rowIndex.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="484,115" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="[selectedBuilder]" Text="[cesNo]" WorkbookPath="CES_workbook_V1.xlsx" />
+                          <ui:MarkOutlookMailAsRead DisplayName="Mark Outlook Mail As Read/Unread" sap:VirtualizedContainerService.HintSize="484,142" sap2010:WorkflowViewState.IdRef="MarkOutlookMailAsRead_1" MailMessage="[emailItem]" MarkAs="Read" />
+                          <If Condition="[selectedBuilder.Equals(&quot;APT-CES ONLY&quot;)]" sap:VirtualizedContainerService.HintSize="484,391" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Email APT workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Email APT.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="address">
+                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="address" />
+                                    </InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="cesAttachment">
+                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Split(config,&quot;##&quot;)(2)+cesNo + &quot;.pdf&quot;" />
+                                    </InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
                         </Sequence>
                       </If.Then>
                     </If>
@@ -256,7 +286,7 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:Beep sap:VirtualizedContainerService.HintSize="638,22" sap2010:WorkflowViewState.IdRef="Beep_1" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="638,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Email Processing Completed Succesfully&quot;]" />
+    <ui:Beep sap:VirtualizedContainerService.HintSize="716,22" sap2010:WorkflowViewState.IdRef="Beep_1" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="716,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Email Processing Completed Succesfully&quot;]" />
   </Sequence>
 </Activity>

@@ -117,7 +117,7 @@
         <InArgument x:TypeArguments="x:String">[emailBody + address + "'"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[emailBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" ReplyTo="undergrounds@bmwelectricalservices.com.au" Sensitivity="Normal" Subject="[subject]" To="vkvijaypu6@gmail.com">
+    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[emailBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" ReplyTo="undergrounds@bmwelectricalservices.com.au" Sensitivity="Normal" Subject="[subject]" To="connections@aptenergysolutions.com.au">
       <ui:SendOutlookMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">
