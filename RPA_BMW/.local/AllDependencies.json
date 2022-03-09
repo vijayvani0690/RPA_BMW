@@ -5451,15 +5451,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Owner\\.nuget\\packages\\": {}
+    "C:\\Users\\vijay\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "RPA_BMW",
       "projectName": "RPA_BMW",
-      "projectPath": "C:\\Users\\Owner\\Documents\\UiPath\\RPA_BMW\\.local",
-      "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Owner\\Documents\\UiPath\\RPA_BMW\\.local"
+      "projectPath": "F:\\Uipath Projects\\BMW Rpa\\RPA_BMW\\RPA_BMW\\.local",
+      "packagesPath": "C:\\Users\\vijay\\.nuget\\packages\\",
+      "outputPath": "F:\\Uipath Projects\\BMW Rpa\\RPA_BMW\\RPA_BMW\\.local"
     },
     "frameworks": {
       "net461": {
@@ -5495,7 +5495,7 @@
             "version": "[21.4.4, 21.4.4]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\vijay\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
