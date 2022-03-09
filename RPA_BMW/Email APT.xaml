@@ -1,12 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Email_APT" this:Email_APT.address="Test" this:Email_APT.cesAttachment="F:\Roller Project\Prints\123.pdf" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Email_APT" this:Email_APT.address="Test" this:Email_APT.cesAttachment="C:\RPA Docs\N5014627191.pdf" this:Email_APT.builder="BB" this:Email_APT.toEmail="connections@aptenergysolutions.com.au" this:Email_APT.isAPT="True" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="address" Type="InArgument(x:String)" />
     <x:Property Name="cesAttachment" Type="InArgument(x:String)" />
+    <x:Property Name="builder" Type="InArgument(x:String)" />
+    <x:Property Name="toEmail" Type="InArgument(x:String)" />
+    <x:Property Name="isAPT" Type="InArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1117,603</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1004,752</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Email_APT_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="66">
@@ -75,25 +78,17 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Email_APT" sap:VirtualizedContainerService.HintSize="376,437" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Email_APT" sap:VirtualizedContainerService.HintSize="695,687" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="subject">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">CES available for '</Literal>
-        </Variable.Default>
-      </Variable>
-      <Variable x:TypeArguments="x:String" Name="emailBody">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">To inform them that the CES is now available for the installed U/G MAINS @ '</Literal>
-        </Variable.Default>
-      </Variable>
-      <Variable x:TypeArguments="x:String" Name="selectedBuilder" />
+      <Variable x:TypeArguments="x:String" Default="CES available for '" Name="subject" />
+      <Variable x:TypeArguments="x:String" Default="To inform them that the CES is now available for the installed U/G MAINS @ '" Name="emailBody" />
+      <Variable x:TypeArguments="x:String" Default="AAA" Name="selectedBuilder" />
       <Variable x:TypeArguments="sd:DataTable" Name="excelDT" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -101,23 +96,59 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[subject]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[subject + address + "'"]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[emailBody]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[emailBody + address + "'"]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[emailBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" ReplyTo="undergrounds@bmwelectricalservices.com.au" Sensitivity="Normal" Subject="[subject]" To="connections@aptenergysolutions.com.au">
+    <If Condition="[isAPT]" sap:VirtualizedContainerService.HintSize="653,410" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[subject]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[subject + address + "'"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[emailBody]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["&lt;p&gt;Hi APT,&lt;/p&gt;&lt;/br&gt;&lt;/br&gt;&lt;p&gt;Please find attached CES (P) for " + address + "&lt;/br&gt;&lt;/br&gt; &lt;p&gt;Builder is " + builder +"&lt;br&gt;&lt;br&gt;&lt;h4&gt;Thanks,&lt;/h4&gt;&lt;h4&gt;Underground Team&lt;/h4&gt;" +"&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;b&gt;BMW ELECTRICAL SERVICES&lt;/b&gt;&lt;/p&gt;&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;span style='color:#767171'&gt;A: Factory 1/14 Apex Drive, Truganina, VIC, 3029&lt;/span&gt;&lt;/p&gt;&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;span style='color:#767171'&gt;E: &lt;/span&gt;&lt;span&gt;&lt;a href='mailto:info@bmwelectricalservices.com.au' target='_blank' &gt;info@bmwelectricalservices.com.au&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;span style='color:#767171'&gt;W:&lt;/span&gt;&lt;span&gt; &lt;a href='http://www.bmwelectricalservices.com.au/' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://www.bmwelectricalservices.com.au/&amp;amp;source=gmail&amp;amp;ust=1645796137520000&amp;amp;usg=AOvVaw1p0pTg9p4h6eLGmFlPwwVW'&gt;www.bmwelectricalservices.com.&lt;wbr&gt;au&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;span&gt;&lt;img src='https://bmwelectricalservices.com.au/wp-content/uploads/2016/05/bmwlogo02.png'&gt;&lt;/span&gt;&lt;/p&gt;"]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[subject]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["Non prescribed CES available for '" + address + "'"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[emailBody]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["&lt;p&gt;Hi " + builder +",&lt;/p&gt;&lt;/br&gt;&lt;/br&gt;&lt;p&gt;Please find attached CES (NP) for " + address +"&lt;br&gt;&lt;br&gt;&lt;h4&gt;Thanks,&lt;/h4&gt;" + "&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;b&gt;BMW ELECTRICAL SERVICES&lt;/b&gt;&lt;/p&gt;&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;span style='color:#767171'&gt;A: Factory 1/14 Apex Drive, Truganina, VIC, 3029&lt;/span&gt;&lt;/p&gt;&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;span style='color:#767171'&gt;E: &lt;/span&gt;&lt;span&gt;&lt;a href='mailto:info@bmwelectricalservices.com.au' target='_blank' &gt;info@bmwelectricalservices.com.au&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;span style='color:#767171'&gt;W:&lt;/span&gt;&lt;span&gt; &lt;a href='http://www.bmwelectricalservices.com.au/' target='_blank' data-saferedirecturl='https://www.google.com/url?q=http://www.bmwelectricalservices.com.au/&amp;amp;source=gmail&amp;amp;ust=1645796137520000&amp;amp;usg=AOvVaw1p0pTg9p4h6eLGmFlPwwVW'&gt;www.bmwelectricalservices.com.&lt;wbr&gt;au&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class='MsoNormal' style='margin:0cm;font-size:11pt;font-family:Calibri,sans-serif'&gt;&lt;span&gt;&lt;img src='https://bmwelectricalservices.com.au/wp-content/uploads/2016/05/bmwlogo02.png'&gt;&lt;/span&gt;&lt;/p&gt;"]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[emailBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="653,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" ReplyTo="undergrounds@bmwelectricalservices.com.au" Sensitivity="Normal" Subject="[subject]" To="[toEmail]">
       <ui:SendOutlookMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">
